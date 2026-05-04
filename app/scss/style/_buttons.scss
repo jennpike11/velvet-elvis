@@ -1,0 +1,82 @@
+@use '../base/globals' as *;
+
+
+.primary-button, .secondary-button, .search-submit, .load-more,
+.swpm-login-form-submit, .swpm-pw-reset-submit,
+.swpm-edit-profile-submit {
+    @include flex-center;
+    width: fit-content;
+    min-width: 160px;
+    height: 40px;
+    padding: 0 $spacer/2;
+    color: $black;
+    font-family: $font-secondary;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: $gold;
+    cursor: pointer;
+
+    &:hover {
+        color: $black;
+    }
+}
+
+.secondary-button {
+    border: 1px solid $gold;
+    color: $gold;
+    background: unset;
+
+    &:hover {
+        color: $gold;
+    }
+}
+
+.frm_style_formidable-style.with_frm_style .frm_submit button,
+.frm_style_formidable-style.with_frm_style .frm_submit button:hover,
+.frm_style_formidable-style.with_frm_style .frm_submit button:active {
+    @include flex-center;
+    width: 100%;
+    min-height: 48px;
+    margin: 32px auto;
+    padding: 0 24px;
+    border: 1px solid $gold;
+    color: $gold !important;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: $font-secondary;
+    background: unset;
+    box-shadow: unset;
+    cursor: pointer;
+
+
+    &:hover {
+        color: $gold;
+    }
+}
+
+.read-more {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+
+    &:after {
+        content: '\f30b';
+        margin-left: 8px;
+        font-family: fontawesome;
+    }
+}
+
+.load-more {
+    @include container;
+    width: fit-content !important;
+    margin-bottom: $spacer;
+}
+
+// Two adjacent buttons
+.buttons {
+    @include flex-center;
+    max-width: 60%;
+    margin: auto;
+}
+
+

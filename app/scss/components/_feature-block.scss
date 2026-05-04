@@ -1,0 +1,54 @@
+@use '../base/globals' as *;
+
+.feature-block {
+  &__wrapper {
+    position: relative;
+  }
+  
+  &__image {
+    height: 640px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    @include container;
+    max-width: 904px;
+    padding: 64px 0;
+
+  }
+
+  &__heading {
+    max-width: 220px;
+
+    @include respond-up(small){
+      max-width: 320px;
+    }
+  }
+
+  &__description {
+    @include respond-up(small){
+      columns: 2; 
+      column-gap: 24px;
+    }
+  }
+
+  &__button {
+    margin-top: 24px;
+  }
+
+  &__design {
+    position: absolute;
+    top: 530px;
+    right: 0;
+    height: 180px;
+
+    @include respond-up(small){
+      height: 220px;
+    }
+  }
+}

@@ -1,0 +1,63 @@
+@use '../base/globals' as *;
+
+.search-form {
+  display: flex;
+}
+
+.search-field {
+  width: 290px;
+  max-width: 100%;
+  height: 40px;
+  border: 0;
+  border-bottom: 1px solid $grey;
+  font-family: $font-primary;
+
+  @include respond-up(small){
+    width: 320px;
+  }
+}
+
+// Search Results
+.search-results {
+  .entry-content__main {
+    margin-bottom: $spacer*2;
+
+    a {
+      font-size: 24px;
+      color: $black;
+    }
+  }
+
+  .articles {
+   column-count: 2;
+   column-gap: 32px;
+  }
+
+  article {
+    margin-bottom: $spacer*2;
+  }
+}
+
+// Search again
+.search-again {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 48px 0 $spacer*2;
+
+  p {
+    margin-right: $spacer;
+  }
+}
+
+// Search when no results
+.no-results {
+  @include container;
+  margin-bottom: $spacer*2;
+
+  h1 {
+    font-size: 44px;  
+  }
+}
+
+

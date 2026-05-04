@@ -1,0 +1,31 @@
+@use '../base/globals' as *;
+
+.vertical-slide {
+  opacity: 0;
+  transform: translate3d(0, 200px, 0);
+  will-change: transform, opacity;
+  transition: all 2s cubic-bezier(.03, .6, .33, .96);
+}
+
+.vertical-slide.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 1px, 0);
+}
+
+// Rotate
+.rotate {
+  width: fit-content;
+  max-width: 600px;
+  margin: auto;
+  animation: rotateItem 32s linear infinite;
+}
+
+@keyframes rotateItem {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

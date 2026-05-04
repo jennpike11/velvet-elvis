@@ -1,0 +1,325 @@
+@use '../base/globals' as *;
+
+
+// reset browser defaults
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  z-index: 0;
+  height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  color: $white;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 100;
+  font-family: $font-primary;
+  scroll-behavior: smooth;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: $spacer/2;
+  font-family: $font-secondary;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 48px;
+  line-height: 1;
+
+  @include respond-up(small){
+    font-size: 64px;
+    line-height: 72px;
+  }
+
+  @include respond-up(large){
+    font-size: 72px;
+    line-height: 80px;
+  }
+}
+
+h2 {
+  font-size: 28px;
+  line-height: 36px;
+
+  @include respond-up(small){
+    font-size: 40px;
+    line-height: 48px;
+  }
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 32px;
+
+  @include respond-up(small){
+  font-size: 32px;
+  line-height: 40px;
+  }
+}
+
+h4 {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+p {
+  margin-bottom: $spacer/2;
+
+  &:last-of-type {
+    margin-bottom: unset;
+  }
+}
+ 
+a, a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style-type: none;
+  list-style-position: inside;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+.entry-footer {
+  display: none;
+}
+
+.container {
+  @include container;
+}
+
+.show-on-mobile {
+  @include respond-up(large){
+    display: none;
+  }
+}
+
+.padding--xsmall {
+  padding-top: $spacer/2;
+  padding-bottom: $spacer/2;
+}
+
+.padding--small {
+  padding-top: $spacer;
+  padding-bottom: $spacer;
+}
+
+.padding--medium {
+  padding-top: $spacer;
+  padding-bottom: $spacer;
+  
+  @include respond-up(small) {
+    padding-top: $spacer*2;
+    padding-bottom: $spacer*2;
+  }
+}
+
+.padding--large {
+  padding-top: $spacer;
+  padding-bottom: $spacer;
+
+  @include respond-up(small){
+    padding-top: $spacer*3;
+    padding-bottom: $spacer*3;
+  }
+}
+
+.padding--xlarge {
+  padding-top: $spacer;
+  padding-bottom: $spacer;
+  
+  @include respond-up(small) {
+    padding-top: $spacer*4;
+    padding-bottom: $spacer*4;
+  }
+}
+
+.width--small {
+  max-width: 640px !important;
+}
+
+.width--medium {
+  max-width: 888px !important;
+}
+
+// Background colors for sections, buttons, etc
+.background-color {
+  &--black {
+    background-color: $black;
+  }
+
+  &--white {
+    background-color: $white;
+  }  
+
+  &--green {
+    background-color: $green;
+  }
+}
+
+// Font color options
+.color {
+  &--white {
+   color: $white;
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &--black {
+    color: $black;
+
+    &:hover {
+      color: $black;
+    }
+  }
+
+  &--green {
+    color: $green;
+
+    &:hover {
+      color: $green;
+    }
+  }
+
+  &--gold {
+    color: $gold;
+
+    &:hover {
+      color: $gold;
+    }
+  }
+}
+
+.comments-area {
+  display: none;
+}
+
+.fa-hand-point-right:before {
+  margin-right: 8px;
+  font-family: fontawesome;
+}
+
+.linkedin:after {
+  content: '\f0e1';
+  font-family: fontawesome;
+}
+
+.instagram:after {
+  content: '\f16d';
+  font-family: fontawesome;
+}
+
+.facebook:after {
+  content: '\f39e';
+  font-family: fontawesome;
+}
+
+.pinterest:after {
+  content: '\f231';
+  font-family: fontawesome;
+}
+
+.email:after {
+  content: '\f0e0';
+  font-family: fontawesome;
+}
+
+.google:after {
+  content: '\f1a0';
+  font-family: fontawesome;
+}
+
+.twitter:after {
+  content: '\f099';
+  font-family: fontawesome;
+}
+
+.youtube:after {
+  content: '\f167';
+  font-family: fontawesome;
+}
+
+.legal-pages {
+  margin: 120px 0 64px;
+
+  .entry-title {
+    max-width: 640px;
+    margin: 0 auto 32px;
+    text-align: center;
+    font-size: 28px;
+    line-height: 36px;
+    font-family: $font-secondary;
+  }
+
+  a, a:hover {
+    color: $black;
+    text-decoration: underline;
+  }
+}  
+
+// Instagram feed tweaks
+#sb_instagram .sb_instagram_header,
+.sb_instagram_header, #sb_instagram #sbi_load {
+  display: none !important;
+}
+
+#sb_instagram.sbi_col_4 #sbi_images .sbi_item {
+  padding: 0 8px !important;
+}
+
+#sb_instagram .sbi_photo {
+  height: auto !important;
+}
+
+#sb_instagram.sbi_palette_custom_1 {
+  overflow: hidden !important;
+}
+
+// For delivery page
+.delivery {
+  @include respond-up(small){
+    @include flex-between;
+  }
+
+  &__item {
+    @include respond-up(small){
+      width: calc(50% - 24px);
+    }
+
+    &:first-of-type {
+      margin-bottom: $spacer;
+
+      @include respond-up(small){
+        margin-bottom: unset;
+      }
+    }
+  }
+}

@@ -1,0 +1,102 @@
+@use '../base/globals' as *;
+
+
+.site-footer {
+  @include container;
+  padding: $spacer 0 0;
+  font-size: 16px;
+
+  * {
+    color: $white;
+  }
+ 
+  &__wrapper {
+    margin-top: auto;
+    background: $black;
+  }
+
+  .widget-area {
+    &__wrapper {
+      width: 100%;
+    }
+  }
+
+  .wp-block-image img {
+    display: none;
+    width: fit-content;
+    height: 40px;
+    margin: auto;
+    object-fit: contain;
+
+    @include respond-up(large){
+      display: block;  
+      height: 48px;
+      margin: unset;
+    }
+  }
+
+  .menu {
+    column-count: 3;
+    column-gap: 32px;
+    font-size: 14px;
+
+    @include respond-up(small){
+      width: 88%;
+      font-size: 16px;
+      column-gap: 64px;
+    }
+  }
+
+  .menu-item {
+    margin-bottom: 8px;
+    list-style-type: none;
+  }
+
+  &__socials {
+    display: flex;
+    margin-top: 24px;
+
+    a {      
+      &:after {
+        @include flex-center;
+        margin-right: $spacer/2;
+        border: 1px solid $white;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        color: $white;
+      }
+    }
+  }
+
+  &__registration {
+    @include container;
+    margin-top: 24px;
+    padding: 16px 0;
+    border-top: 0.0625rem solid rgba(255, 255, 255, 0.1);
+    font-size: 10px;
+    text-align: center;
+    color: $white;
+
+    a, a:hover {
+      color: $white;
+    }
+  }
+
+  .wp-block-column:nth-of-type(3){
+    h4, p {
+      margin-bottom: unset;
+    }
+  }
+
+  .wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column {
+    flex-basis: unset !important;
+  }
+}
+
+// For sticky footer
+.site {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

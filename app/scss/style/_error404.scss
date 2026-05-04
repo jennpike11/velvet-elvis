@@ -1,0 +1,10 @@
+@use '../base/globals' as *;
+
+.entry-content__404 {
+  @include container;
+  margin-top: 140px;
+}
+
+.entry-content__search-form {
+  margin-top: $spacer;
+}

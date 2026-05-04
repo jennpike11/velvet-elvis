@@ -1,0 +1,69 @@
+@use '../base/globals' as *;
+
+.text-with-image-block {
+  &__wrapper {
+    position: relative;
+   
+    .fade--yes {
+        padding: $spacer*2 0;
+        background: linear-gradient(180deg, rgba(52, 51, 53, .4), #010002, rgba(52, 51, 53, .4));
+        box-shadow: 0px 0px 24px 4px rgba(52, 51, 53, 0.6);
+      }
+    
+      &.background-color--green .fade--yes {
+        background: linear-gradient(180deg, rgba(18, 38, 32, .4), #2a3c36, rgba(18, 38, 32, .4));
+        box-shadow: 0px 0px 24px 4px rgba(18, 38, 32, 0.9);
+      }
+  }
+
+  &__text {
+    @include container;
+    max-width: $max-width-small;
+  }
+
+  &__right {
+      display: block;
+      width: 400px;
+      max-width: 100%;
+      margin: 8% auto 0;
+      transform: rotate(8deg);
+
+      @include respond-up(xlarge){
+        position: absolute;
+        right: 8%;
+        bottom: 8%;
+        margin: unset;
+      }
+
+      img {
+        height: 100%;
+        object-fit: contain;
+      }
+  }
+
+  &__left {
+      display: block;
+      width: 400px;
+      max-width: 100%;
+      margin: 8% auto 0;
+      transform: rotate(-8deg);
+
+      @include respond-up(xlarge){
+        position: absolute;
+        left: 8%;
+        bottom: 8%;
+        z-index: 3;
+        margin: unset;
+      }
+
+      img {
+        height: 100%;
+        object-fit: contain;
+      }
+  }
+
+  a, a:hover {
+    color: $gold;
+    cursor: pointer;
+  }
+}

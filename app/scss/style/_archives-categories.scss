@@ -1,0 +1,107 @@
+@use '../base/globals' as *;
+
+.archives {
+  &__content {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    margin-top: $spacer*2;
+
+    .search-form {
+      display: block;
+
+      @include respond-up(small){
+        @include flex-center;
+        margin: 0 0 64px auto;
+      }
+    }
+
+    .search-field {
+      width: 100%;
+      margin-bottom: 16px;
+      padding: 4px;
+      border: 1px solid #898a8d;
+
+      @include respond-up(small){
+        width: 300px;
+        margin: 0 8px 0 0;
+      }
+    }
+
+    .search-submit {
+      width: 100%;
+    }
+
+    a,
+    a:hover {
+      color: $black;
+    }
+  }
+
+  &__heading {
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  &__items {
+    @include flex-between;
+    flex-wrap: wrap;
+    margin: 40px 0;
+
+    h3 {
+      width: calc(50% - 24px);
+
+      @include respond-up(medium){
+        width: calc(33.33% - 24px);
+      }
+
+      @include respond-up(large) {
+        width: calc(25% - 24px);
+      }
+
+    }
+  }
+}
+
+.category {
+  &__heading {
+    font-size: 48px;
+    line-height: 56px;
+    text-align: center;
+  }
+
+  &__content {
+  @include container;
+  @include flex-between;
+  flex-wrap: wrap;
+  margin-top: 48px;
+  }
+
+  &__item {
+    margin-bottom: $spacer;
+
+    @include respond-up(small){
+      width: calc(50% - 24px);
+    }
+
+    @include respond-up(large) {
+      width: calc(33.33% - 24px);
+    }
+
+    img {
+      height: 254px;
+      object-fit: cover; 
+    }
+  }
+
+  &__link, &__link:hover {
+    font-size: 14px;
+    color: $white;
+
+    h2 {
+      margin: 8px 0 4px;
+      font-size: 24px;
+      line-height: 1;
+    }
+  }
+}
