@@ -9,7 +9,7 @@
   height: 100dvh;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  background-color: $black;
+  background-color: $cinder;
   transition: left 0.6s ease-in-out;
 
   @include respond-up(small) { 

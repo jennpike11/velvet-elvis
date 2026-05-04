@@ -9,25 +9,25 @@
     min-width: 160px;
     height: 40px;
     padding: 0 $spacer/2;
-    color: $black;
+    color: $cinder;
     font-family: $font-secondary;
     font-weight: bold;
     text-transform: uppercase;
-    background: $gold;
+    background: $saffron;
     cursor: pointer;
 
     &:hover {
-        color: $black;
+        color: $cinder;
     }
 }
 
 .secondary-button {
-    border: 1px solid $gold;
-    color: $gold;
+    border: 1px solid $saffron;
+    color: $saffron;
     background: unset;
 
     &:hover {
-        color: $gold;
+        color: $saffron;
     }
 }
 
@@ -39,8 +39,8 @@
     min-height: 48px;
     margin: 32px auto;
     padding: 0 24px;
-    border: 1px solid $gold;
-    color: $gold !important;
+    border: 1px solid $saffron;
+    color: $saffron !important;
     font-size: 22px;
     font-weight: bold;
     font-family: $font-secondary;
@@ -50,7 +50,7 @@
 
 
     &:hover {
-        color: $gold;
+        color: $saffron;
     }
 }
 

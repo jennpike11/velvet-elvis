@@ -188,7 +188,7 @@
         .add-border {
             @include respond-up(large) {
                 width: 1px;
-                background: $gold;
+                background: $saffron;
             }
         }
 

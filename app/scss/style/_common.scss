@@ -171,7 +171,7 @@ img {
 // Background colors for sections, buttons, etc
 .background-color {
   &--black {
-    background-color: $black;
+    background-color: $cinder;
   }
 
   &--white {
@@ -179,7 +179,7 @@ img {
   }  
 
   &--green {
-    background-color: $green;
+    background-color: $crimson;
   }
 }
 
@@ -194,26 +194,26 @@ img {
   }
 
   &--black {
-    color: $black;
+    color: $cinder;
 
     &:hover {
-      color: $black;
+      color: $cinder;
     }
   }
 
   &--green {
-    color: $green;
+    color: $crimson;
 
     &:hover {
-      color: $green;
+      color: $crimson;
     }
   }
 
   &--gold {
-    color: $gold;
+    color: $saffron;
 
     &:hover {
-      color: $gold;
+      color: $saffron;
     }
   }
 }
@@ -280,7 +280,7 @@ img {
   }
 
   a, a:hover {
-    color: $black;
+    color: $cinder;
     text-decoration: underline;
   }
 }  
