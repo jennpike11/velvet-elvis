@@ -1,165 +1,77 @@
-(function ($) {
- 
-  // Mobile Menu
-  $(window).scroll(function () {
-    if ($(window).scrollTop() >= 10) {
-      $('.site-header__wrapper').addClass('scrolled');
-      $('nav div').addClass('visible-title');
-    } else {
-      $('.site-header__wrapper').removeClass('scrolled');
+jQuery(function($) {
+  var $window = $(window);
+  var $scenes = $('.ve-scene');
+  var $steps = $('.ve-scroll__step');
+  var currentIndex = 0;
+  var ticking = false;
+
+  function setScene(index) {
+    if (index === currentIndex) {
+      return;
     }
-  });
 
-  // Stop scroll when menu open
-  $('.menu-toggle').click(function () {
-    $('html').toggleClass('active');  
-  });  
+    var $currentScene = $('.ve-scene.is-active');
+    var $nextScene = $('.ve-scene[data-scene="' + index + '"]');
 
-  // Load More Button - Posts from the Category Page 
-  $(".load-more--category-posts").on("click", function(e){
-    e.preventDefault();
-    $(".category-items__item:hidden").slice(0, 4).slideDown();
-    if($(".category-items__item:hidden").length == 0) {
-      $(".load-more--category-posts").text("End of content").addClass("no-content");
+    $scenes.removeClass('is-under');
+
+    $currentScene
+      .removeClass('is-active')
+      .addClass('is-under');
+
+    $nextScene
+      .addClass('is-active');
+
+    currentIndex = index;
+
+    setTimeout(function() {
+      $currentScene.removeClass('is-under');
+    }, 1400);
+  }
+
+  function updateScenes() {
+    var scrollTop = $window.scrollTop();
+    var stepHeight = $steps.first().outerHeight();
+    var nextIndex = Math.round(scrollTop / stepHeight);
+
+    if (nextIndex < 0) {
+      nextIndex = 0;
     }
-  });
 
-  // Load More Button - Posts from the Post Feed Block
-  $(".load-more--posts").on("click", function(e){
-    e.preventDefault();
-    $(".load-items__item:hidden").slice(0, 3).slideDown();
-    if($(".load-items__item:hidden").length == 0) {
-      $(".load-more--posts").text("End of content").addClass("no-content");
+    if (nextIndex > $steps.length - 1) {
+      nextIndex = $steps.length - 1;
     }
-  });
 
+    setScene(nextIndex);
+    updateParallax(scrollTop, stepHeight, nextIndex);
 
-  // Rooms Slider
-  if ($.fn.slick && $('.rooms-block__carousel').length && !$('.rooms-block__carousel').hasClass('slick-initialized')) {
-    $('.rooms-block__carousel').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      infinite: true,
-      arrows: false,
-      dots: true,
-      cssEase: 'linear',
-      pauseOnHover: true,
-      pauseOnFocus: true,
+    ticking = false;
+  }
+
+  function updateParallax(scrollTop, stepHeight, sceneIndex) {
+    var localProgress = (scrollTop - (sceneIndex * stepHeight)) / stepHeight;
+    var $activeScene = $('.ve-scene.is-active');
+
+    var bgMove = localProgress * 10;
+    var midMove = localProgress * 22;
+
+    $activeScene.find('.ve-scene__bg').css({
+      transform: 'translate3d(0,' + bgMove + 'px,0) scale(1.015)'
+    });
+
+    $activeScene.find('.ve-scene__mid').css({
+      transform: 'translate3d(0,' + midMove + 'px,0)'
     });
   }
 
-
-// Carousel Block Slider + Hover Scrub
-$(function () {
-  var $carousels = $('.carousel-block__images');
-
-  if (!$carousels.length || !$.fn.slick) return;
-
-  $carousels.each(function () {
-    var $carousel = $(this);
-
-    // Init slick once
-    if (!$carousel.hasClass('slick-initialized')) {
-      $carousel.slick({
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        infinite: true,
-        arrows: false,
-        dots: false,
-        draggable: true,
-        swipe: true,
-        touchMove: true,
-        swipeToSlide: true,
-        speed: 450,
-        responsive: [
-          { breakpoint: 1024, settings: { slidesToShow: 3 } },
-          { breakpoint: 768, settings: { slidesToShow: 2 } },
-          { breakpoint: 480, settings: { slidesToShow: 1 } }
-        ]
-      });
+  function requestUpdate() {
+    if (!ticking) {
+      window.requestAnimationFrame(updateScenes);
+      ticking = true;
     }
+  }
 
-    // Hover scrub behavior
-    var rafId = null;
-    var targetIndex = null;
-    var lastIndex = null;
-    var isPointerDown = false;
+  $window.on('scroll resize', requestUpdate);
 
-    function update() {
-      rafId = null;
-      if (targetIndex === null) return;
-      if (targetIndex === lastIndex) return;
-
-      // true = don't animate every tiny move too aggressively
-      $carousel.slick('slickGoTo', targetIndex, true);
-      lastIndex = targetIndex;
-    }
-
-    function queueUpdate() {
-      if (rafId) return;
-      rafId = requestAnimationFrame(update);
-    }
-
-    // Use the slick-list as the hover area (this is the visible viewport)
-    var $hoverArea = $carousel.closest('.slick-slider').find('.slick-list');
-
-    // Track pointer down so we don't fight the existing drag behavior
-    $hoverArea.on('mousedown touchstart', function () {
-      isPointerDown = true;
-    });
-
-    $(document).on('mouseup touchend touchcancel', function () {
-      isPointerDown = false;
-    });
-
-    $hoverArea.on('mousemove', function (e) {
-      if (isPointerDown) return; // let drag do its thing
-
-      var slick = $carousel.slick('getSlick');
-      if (!slick) return;
-
-      var slideCount = slick.slideCount;
-      if (!slideCount) return;
-
-      var rect = this.getBoundingClientRect();
-      var x = e.clientX - rect.left;
-      var pct = x / rect.width;
-
-      // Clamp 0..1
-      if (pct < 0) pct = 0;
-      if (pct > 1) pct = 1;
-
-      // Map mouse position to slide index
-      targetIndex = Math.round(pct * (slideCount - 1));
-      queueUpdate();
-    });
-
-    $hoverArea.on('mouseleave', function () {
-      targetIndex = null;
-      lastIndex = null;
-      if (rafId) cancelAnimationFrame(rafId);
-      rafId = null;
-    });
-  });
+  updateScenes();
 });
-
-
-  // FAQ Accordion
-$(function(){
-  $('.faq-block__item').click(function(){
-    if($(this).hasClass('active')) {         
-      $('.faq-block__details').slideUp();
-      $('.faq-block__item').removeClass('active');
-    }
-    else
-    {      
-      $('.faq-block__item').removeClass('active');   
-      $(this).addClass('active');
-      $('.faq-block__details').slideUp();
-      $(this).find('.faq-block__details').slideDown();
-    }
-  });
-});
-
-
-})(jQuery);

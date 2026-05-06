@@ -1,67 +1,262 @@
 @use '../base/globals' as *;
 
-.hero-block {
-  @include container;
+.ve-site {
+  position: relative;
+  background: #160807;
+  color: #f2b36b;
+}
+
+.ve-stage {
+  position: fixed;
+  inset: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: #160807;
+}
+
+.ve-scene {
   @include flex-center;
-  flex-direction: column;
-  height: 100%;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.015);
+  transition:
+    opacity 1400ms ease-in-out,
+    transform 1800ms ease-in-out;
+  will-change: opacity, transform;
+  z-index: 1;
 
-  &__wrapper {
-    position: relative;
-    height: 90vh;
-    overflow: hidden;
-     background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 1) 100%
-      );
-
-
-    &.fade--white {
-      background-image: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.08) 80%,
-      rgba(255, 255, 255, 0.5) 85%,
-      rgba(255, 255, 255, 1) 100%
-      );
-    }
-
-    &.page-type--standard {
-      height: 480px;
-    }
+  &.is-active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+    z-index: 3;
   }
 
-  &__image, &__video {
+  &.is-under {
+    opacity: 1;
+    pointer-events: none;
+    transform: scale(1.01);
+    z-index: 2;
+  }
+
+  &__bg,
+  &__mid {
     position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -2;
-    width: 100%;
-    height: 100%;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+  }
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+  &__bg {
+    z-index: 1;
+  }
+
+  &__mid {
+    z-index: 2;
+    opacity: 0.35;
+    mix-blend-mode: multiply;
+  }
+
+  &__copy {
+    @include container;
+    position: relative;
+    z-index: 6;
+    max-width: 720px;
+    margin-right: 12%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 500ms ease,
+      transform 700ms ease;
+
+    .is-active & {
+      opacity: 1;
+      transform: translateY(0);
+      transition:
+        opacity 800ms ease 500ms,
+        transform 1000ms ease 500ms;
+    }
+
+    .is-under & {
+      opacity: 0;
+      transition: none;
+    }
+
+    h1,
+    h2 {
+      margin: 0;
+      font-size: clamp(48px, 7vw, 112px);
+      line-height: 0.95;
+      letter-spacing: 0.04em;
+      color: #d6721d;
+    }
+
+    p {
+      margin: 24px 0 0;
+      max-width: 420px;
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.45;
+      color: #f2b36b;
     }
   }
 
-  &__heading {
-    color: $white;
-    text-align: center;
+  &__float {
+    position: absolute;
+    z-index: 4;
+    pointer-events: none;
+
+    .is-under & {
+      opacity: 0;
+      transition: none;
+    }
   }
 
-  &__description {
-    font-size: 32px;
-    line-height: 44px;
-    text-align: center;
-    color: $white;
+  &__float--hula {
+    left: 4vw;
+    bottom: 8vh;
+    height: 80vh;
+    animation: ve-sway 6s ease-in-out infinite;
   }
 
-  &__links {
-    @include flex-center;
-    column-gap: 16px;
-    margin: $spacer auto 0;
+  &__float--players {
+    left: 6vw;
+    bottom: 20vh;
+    width: 400px;
+    z-index: 5;
+    pointer-events: none;
+    animation: ve-float 8s ease-in-out infinite;
+  }
+
+  &__float--palms {
+    left: 0;
+    bottom: 12vh;
+    height: 88vh;
+    z-index: 4;
+    pointer-events: none;
+  }
+
+  &__float--volcano {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    z-index: 4;
+    pointer-events: none;
+  }
+
+  &__float--volcano-flowers {
+    left: 3vw;
+    bottom: 7vh;
+    width: clamp(180px, 22vw, 420px);
+    z-index: 5;
+    animation: ve-float 8s ease-in-out infinite;
+  }
+
+  .ve-scene__ember {
+    position: absolute;
+    z-index: 5;
+    border-radius: 50%;
+    background: #ff8a16;
+    pointer-events: none;
+
+    filter:
+      blur(1px)
+      drop-shadow(0 0 8px rgba(255, 120, 0, 0.8));
+
+    animation: ve-ember-rise linear infinite;
+
+    .is-under & {
+      opacity: 0;
+      transition: none;
+    }
+  }
+
+  .ve-scene__ember--one {
+    left: 39%;
+    top: 21%;
+    width: 10px;
+    height: 10px;
+    animation-duration: 4s;
+  }
+
+  .ve-scene__ember--two {
+    left: 42%;
+    top: 17%;
+    width: 7px;
+    height: 7px;
+    animation-duration: 5s;
+    animation-delay: 1.2s;
+  }
+
+  .ve-scene__ember--three {
+    left: 37%;
+    top: 25%;
+    width: 13px;
+    height: 13px;
+    animation-duration: 4.8s;
+    animation-delay: 0.6s;
+  }
+
+  .ve-scene__ember--four {
+    left: 44%;
+    top: 24%;
+    width: 6px;
+    height: 6px;
+    animation-duration: 5.2s;
+    animation-delay: 2s;
+  }
+}
+
+.ve-scroll {
+  position: relative;
+  z-index: 10;
+}
+
+.ve-scroll__step {
+  height: 140vh;
+}
+
+@keyframes ve-sway {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes ve-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+
+  50% {
+    transform: translateY(-14px) rotate(2deg);
+  }
+}
+
+@keyframes ve-ember-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.6);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translateY(-140px)
+      translateX(12px)
+      scale(1.3);
   }
 }
