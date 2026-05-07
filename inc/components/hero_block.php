@@ -12,6 +12,7 @@ if (function_exists('have_rows') && have_rows('hero_block')) :
     <div class="ve-scene ve-scene--hula is-active" data-scene="0" data-scene-name="home">
       <div class="ve-scene__bg"></div>
       <div class="ve-scene__mid"></div>
+      <img class="ve-scene__bug" src="https://dev-velet-elvis.pikexdigital.com/wp-content/uploads/2026/05/bug.png" alt="">
       <img class="ve-scene__float ve-scene__float--hula" src="https://dev-velet-elvis.pikexdigital.com/wp-content/uploads/2026/05/hula_girl.png" alt="">
       <div class="ve-scene__copy">
         <h1>Velvet Elvis Studios</h1>
