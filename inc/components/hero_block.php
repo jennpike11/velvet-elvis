@@ -4,7 +4,7 @@
     while( have_rows('hero_block') ): the_row(); 
   ?>
 
-<section class="hero-block__wrapper page-type--<?php echo $page ?> fade--<?php echo $fadeColor ?>"  background-color--<?php echo $backgroundColor ?>">
+<section class="hero-block__wrapper page-type--<?php echo $page ?> background-color--<?php echo $backgroundColor ?>">
   <main class="ve-site">
 
   <section class="ve-stage">
@@ -15,7 +15,7 @@
       <img class="ve-scene__float ve-scene__float--hula" src="https://dev-velet-elvis.pikexdigital.com/wp-content/uploads/2026/05/hula_girl.png" alt="">
       <div class="ve-scene__copy">
         <h1>Velvet Elvis Studios</h1>
-        <p>Retro island atmosphere, handmade visuals, and cinematic creative work.</p>
+        <div class="ve-scene__description">Retro island atmosphere, handmade visuals, and cinematic creative work.</div>
       </div>
     </div>
 
@@ -24,11 +24,11 @@
       <div class="ve-scene__mid"></div>
       <div class="ve-scene__ember ve-scene__ember--one"></div>
       <div class="ve-scene__ember ve-scene__ember--two"></div>
-      <img class="ve-scene__float ve-scene__float--volcano" src="https://dev-velet-elvis.pikexdigital.com/wp-content/uploads/2026/05/volcano_full.png" alt="">
+      <img class="ve-scene__float ve-scene__float--volcano" src="https://dev-velet-elvis.pikexdigital.com/wp-content/uploads/2026/05/volcano.png" alt="">
       <img class="ve-scene__float ve-scene__float--volcano-flowers" src="https://dev-velet-elvis.pikexdigital.com/wp-content/uploads/2026/05/flowers.png" alt="">
       <div class="ve-scene__copy">
         <h2>Atmos First</h2>
-        <p>Slow movement, warm color, and a site that feels like stepping into the artwork.</p>
+        <div class="ve-scene__description">Slow movement, warm color, and a site that feels like stepping into the artwork.</div>
       </div>
     </div>
 
@@ -39,7 +39,7 @@
       <img class="ve-scene__float ve-scene__float--players" src="https://dev-velet-elvis.pikexdigital.com/wp-content/uploads/2026/05/players.png" alt="">
       <div class="ve-scene__copy">
         <h2>Made to Move</h2>
-        <p>A one page experience guided by scroll, rhythm, and restraint.</p>
+        <div class="ve-scene__description">A one page experience guided by scroll, rhythm, and restraint.</div>
       </div>
     </div>
 

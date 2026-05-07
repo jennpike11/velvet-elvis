@@ -24,19 +24,8 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<header id="masthead" class="site-header__wrapper">
-		<a class="site-header__logo" href="/">
-				<?php if (has_custom_logo()) { ?>
-					<img src="<?php echo esc_url( wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' )[0] ); ?>" alt="<?php echo get_bloginfo( 'name' ); ?>">
-				<?php } ?>
-		</a>
-		<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'prc-theme' ); ?></button>
 		<div class="site-header">
 			<nav id="site-navigation" class="main-navigation">
-				<a href="/">
-					<?php if (has_custom_logo()) { ?>
-						<img class="site-header__logo" src="<?php echo esc_url( wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' )[0] ); ?>" alt="<?php echo get_bloginfo( 'name' ); ?>">
-					<?php } ?>
-				</a>
 				<?php wp_nav_menu(
 					array(
 						'theme_location' => 'primary-menu',
@@ -47,4 +36,3 @@
 			</nav><!-- #site-navigation -->
 		</div>	
 	</header><!-- #masthead -->
-	<div class="site-overlay"></div>

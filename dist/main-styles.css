@@ -561,38 +561,39 @@ img {
 .ve-scene--volcano .ve-scene__bg {
   position: absolute;
   inset: 0;
+  background: linear-gradient(to bottom, #991d17 0%, #a1261a 36%, #aa3a20 64%, #7b1b18 100%);
   overflow: hidden;
-  background: linear-gradient(to bottom, #8f1b17 0%, #982719 38%, #a13a1f 62%, #7b1b18 100%);
 }
 .ve-scene--volcano .ve-scene__bg:before {
   content: "";
   position: absolute;
   left: 0;
-  bottom: 22%;
+  bottom: 14%;
   width: 100%;
-  height: 34%;
-  background: #68171a;
-  clip-path: polygon(0 70%, 10% 64%, 18% 52%, 28% 58%, 38% 44%, 48% 56%, 60% 40%, 74% 52%, 88% 46%, 100% 58%, 100% 100%, 0 100%);
+  height: 42%;
+  background: #7a1418;
+  clip-path: polygon(0 78%, 10% 74%, 18% 70%, 30% 56%, 44% 60%, 56% 48%, 68% 58%, 80% 52%, 92% 60%, 100% 56%, 100% 100%, 0 100%);
+  pointer-events: none;
 }
-.ve-scene--volcano .ve-scene__bg:after {
+.ve-scene--volcano:before {
   content: "";
   position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 28%;
-  background: #050202;
-  clip-path: polygon(0 54%, 10% 52%, 20% 50%, 30% 52%, 40% 56%, 50% 58%, 60% 56%, 70% 54%, 82% 52%, 92% 50%, 100% 52%, 100% 100%, 0 100%);
+  height: 14%;
+  background: #3d160d;
+  z-index: 2;
+  pointer-events: none;
 }
 .ve-scene--volcano:after {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 12%;
-  background: #3d160d;
-  z-index: 1;
+  inset: 0;
+  z-index: 3;
+  background: radial-gradient(circle at 50% 34%, rgba(255, 180, 110, 0.08) 0%, rgba(255, 180, 110, 0.03) 34%, transparent 64%);
+  mix-blend-mode: screen;
+  pointer-events: none;
 }
 
 .ve-scene--players {
@@ -639,7 +640,35 @@ img {
 }
 
 .site-header__wrapper {
-  display: none;
+  position: relative;
+  z-index: 9;
+  width: 100%;
+}
+.site-header .menu {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+}
+.site-header .menu a {
+  font-size: 0;
+}
+.site-header .menu a:after {
+  content: "\f111";
+  font-family: "fontawesome";
+  font-size: 20px;
+  font-weight: 900;
+  color: #c16524;
+  cursor: pointer;
+}
+.site-header .menu a:hover:after {
+  content: "\f192";
+  font-family: "fontawesome";
+  cursor: pointer;
+}
+.site-header .menu .is-active a:after {
+  content: "\f192";
+  font-family: "fontawesome";
+  cursor: pointer;
 }
 
 .ve-site {
@@ -658,14 +687,12 @@ img {
 
 .ve-scene {
   display: flex;
-  justify-content: center;
-  align-items: center;
   position: absolute;
   inset: 0;
   opacity: 0;
   pointer-events: none;
   transform: scale(1.015);
-  transition: opacity 1400ms ease-in-out, transform 1800ms ease-in-out;
+  transition: opacity 650ms ease-in-out, transform 700ms ease-in-out;
   will-change: opacity, transform;
   z-index: 1;
 }
@@ -708,18 +735,17 @@ img {
   }
 }
 .ve-scene__copy {
+  align-self: center;
   position: relative;
   z-index: 6;
-  max-width: 720px;
-  margin-right: 12%;
+  max-width: 960px;
+  margin: 0 4vw 6vh auto;
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 500ms ease, transform 700ms ease;
+  transition: opacity 500ms ease-in-out;
 }
 .is-active .ve-scene__copy {
   opacity: 1;
-  transform: translateY(0);
-  transition: opacity 800ms ease 500ms, transform 1000ms ease 500ms;
+  transition: opacity 500ms ease-in-out 500ms;
 }
 .is-under .ve-scene__copy {
   opacity: 0;
@@ -733,11 +759,13 @@ img {
   letter-spacing: 0.04em;
   color: #d6721d;
 }
-.ve-scene__copy p {
+.ve-scene__description {
   margin: 24px 0 0;
-  max-width: 420px;
+  max-width: 640px;
+  height: 320px;
+  overflow-y: scroll;
   font-size: clamp(18px, 2vw, 24px);
-  line-height: 1.45;
+  line-height: 1.2;
   color: #f2b36b;
 }
 .ve-scene__float {
@@ -832,12 +860,11 @@ img {
 }
 
 .ve-scroll {
-  position: relative;
-  z-index: 10;
+  display: none;
 }
 
 .ve-scroll__step {
-  height: 140vh;
+  display: none;
 }
 
 @keyframes ve-sway {

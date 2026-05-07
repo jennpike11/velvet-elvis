@@ -1,5 +1,40 @@
 @use '../base/globals' as *;
 
-.site-header__wrapper {
-  display: none;
+.site-header {
+  &__wrapper {
+    position: relative;
+    z-index: 9;
+    width: 100%;
+  }
+
+  .menu {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+
+    a {
+      font-size: 0;
+
+      &:after {
+        content: '\f111';
+        font-family: 'fontawesome';
+        font-size: 20px;
+        font-weight: 900;
+        color: $saffron;
+        cursor: pointer;
+      }
+
+      &:hover:after {
+        content: '\f192';
+        font-family: 'fontawesome';
+        cursor: pointer;
+      }
+    }
+
+    .is-active a:after {
+      content: '\f192';
+      font-family: 'fontawesome';
+      cursor: pointer;
+    }
+  }
 }
