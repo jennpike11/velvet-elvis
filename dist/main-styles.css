@@ -33,96 +33,44 @@
 /*!*********************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./app/scss/main.scss (8) ***!
   \*********************************************************************************************************************************************/
-.primary-button, .secondary-button, .search-submit, .load-more,
-.swpm-login-form-submit, .swpm-pw-reset-submit,
-.swpm-edit-profile-submit {
+.primary-button {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  overflow: hidden;
   width: fit-content;
   min-width: 160px;
   height: 40px;
   padding: 0 16px;
-  color: #060102;
+  border: 1px solid #c16524;
+  border-radius: 2px;
+  color: #5d1b15;
   font-family: "Ojuju", sans-serif;
   font-weight: bold;
   text-transform: uppercase;
-  background: #c16524;
+  background-color: #c16524;
   cursor: pointer;
-}
-.primary-button:hover, .secondary-button:hover, .search-submit:hover, .load-more:hover,
-.swpm-login-form-submit:hover, .swpm-pw-reset-submit:hover,
-.swpm-edit-profile-submit:hover {
-  color: #060102;
+  z-index: 1;
+  transition: color 0.2s ease-in-out;
 }
 
-.secondary-button {
-  border: 1px solid #c16524;
-  color: #c16524;
-  background: unset;
+.primary-button:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 0;
+  background-color: #5d1b15;
+  transition: width 0.2s ease-in-out;
+  z-index: -1;
 }
-.secondary-button:hover {
+
+.primary-button:hover {
   color: #c16524;
 }
 
-.frm_style_formidable-style.with_frm_style .frm_submit button,
-.frm_style_formidable-style.with_frm_style .frm_submit button:hover,
-.frm_style_formidable-style.with_frm_style .frm_submit button:active {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.primary-button:hover:before {
   width: 100%;
-  min-height: 48px;
-  margin: 32px auto;
-  padding: 0 24px;
-  border: 1px solid #c16524;
-  color: #c16524 !important;
-  font-size: 22px;
-  font-weight: bold;
-  font-family: "Ojuju", sans-serif;
-  background: unset;
-  box-shadow: unset;
-  cursor: pointer;
-}
-.frm_style_formidable-style.with_frm_style .frm_submit button:hover,
-.frm_style_formidable-style.with_frm_style .frm_submit button:hover:hover,
-.frm_style_formidable-style.with_frm_style .frm_submit button:active:hover {
-  color: #c16524;
-}
-
-.read-more {
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-}
-.read-more:after {
-  content: "\f30b";
-  margin-left: 8px;
-  font-family: fontawesome;
-}
-
-.load-more {
-  width: calc(100% - 56px);
-  max-width: 1120px;
-  margin-left: auto;
-  margin-right: auto;
-}
-@media (min-width: 768px) {
-  .load-more {
-    width: calc(100% - 64px);
-  }
-}
-.load-more {
-  width: fit-content !important;
-  margin-bottom: 32px;
-}
-
-.buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 60%;
-  margin: auto;
 }
 
 *,
@@ -160,50 +108,16 @@ h5,
 h6 {
   margin-bottom: 16px;
   font-family: "Ojuju", sans-serif;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0.04em;
+  color: #c16524;
 }
 
 h1 {
-  font-size: 48px;
+  margin-bottom: 32px;
+  font-size: clamp(48px, 7vw, 112px);
   line-height: 1;
-}
-@media (min-width: 768px) {
-  h1 {
-    font-size: 64px;
-    line-height: 72px;
-  }
-}
-@media (min-width: 1024px) {
-  h1 {
-    font-size: 72px;
-    line-height: 80px;
-  }
-}
-
-h2 {
-  font-size: 28px;
-  line-height: 36px;
-}
-@media (min-width: 768px) {
-  h2 {
-    font-size: 40px;
-    line-height: 48px;
-  }
-}
-
-h3 {
-  font-size: 24px;
-  line-height: 32px;
-}
-@media (min-width: 768px) {
-  h3 {
-    font-size: 32px;
-    line-height: 40px;
-  }
-}
-
-h4 {
-  font-size: 24px;
-  line-height: 32px;
 }
 
 p {
@@ -692,7 +606,7 @@ img {
   opacity: 0;
   pointer-events: none;
   transform: scale(1.015);
-  transition: opacity 650ms ease-in-out, transform 700ms ease-in-out;
+  transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;
   will-change: opacity, transform;
   z-index: 1;
 }
@@ -751,22 +665,17 @@ img {
   opacity: 0;
   transition: none;
 }
-.ve-scene__copy h1,
-.ve-scene__copy h2 {
-  margin: 0;
-  font-size: clamp(48px, 7vw, 112px);
-  line-height: 0.95;
-  letter-spacing: 0.04em;
-  color: #d6721d;
-}
 .ve-scene__description {
   margin: 24px 0 0;
   max-width: 640px;
-  height: 320px;
+  max-height: 240px;
   overflow-y: scroll;
   font-size: clamp(18px, 2vw, 24px);
   line-height: 1.2;
   color: #f2b36b;
+}
+.ve-scene__button {
+  margin-top: 32px;
 }
 .ve-scene__float {
   position: absolute;
@@ -781,7 +690,7 @@ img {
   left: 4vw;
   bottom: 8vh;
   height: 80vh;
-  animation: ve-sway 6s ease-in-out infinite;
+  animation: ve-sway 5s ease-in-out infinite;
 }
 .ve-scene__float--players {
   left: 6vw;
@@ -789,7 +698,7 @@ img {
   width: 400px;
   z-index: 5;
   pointer-events: none;
-  animation: ve-float 8s ease-in-out infinite;
+  animation: ve-float 5s ease-in-out infinite;
 }
 .ve-scene__float--palms {
   left: 0;
@@ -812,7 +721,7 @@ img {
   bottom: 7vh;
   width: clamp(180px, 22vw, 420px);
   z-index: 5;
-  animation: ve-float 8s ease-in-out infinite;
+  animation: ve-float 5s ease-in-out infinite;
 }
 .ve-scene .ve-scene__ember {
   position: absolute;

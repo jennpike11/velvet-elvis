@@ -22,8 +22,8 @@
   pointer-events: none;
   transform: scale(1.015);
   transition:
-    opacity 650ms ease-in-out,
-    transform 700ms ease-in-out;
+    opacity 500ms ease-in-out,
+    transform 500ms ease-in-out;
   will-change: opacity, transform;
   z-index: 1;
 
@@ -79,25 +79,20 @@
       opacity: 0;
       transition: none;
     }
-
-    h1,
-    h2 {
-      margin: 0;
-      font-size: clamp(48px, 7vw, 112px);
-      line-height: 0.95;
-      letter-spacing: 0.04em;
-      color: #d6721d;
-    }
   }
 
   &__description {
       margin: 24px 0 0;
       max-width: 640px;
-      height: 320px;
+      max-height: 240px;
       overflow-y: scroll;
       font-size: clamp(18px, 2vw, 24px);
       line-height: 1.2;
       color: #f2b36b;
+    }
+
+    &__button {
+      margin-top: 32px;
     }
 
   &__float {
@@ -115,7 +110,7 @@
     left: 4vw;
     bottom: 8vh;
     height: 80vh;
-    animation: ve-sway 6s ease-in-out infinite;
+    animation: ve-sway 5s ease-in-out infinite;
   }
 
   &__float--players {
@@ -124,7 +119,7 @@
     width: 400px;
     z-index: 5;
     pointer-events: none;
-    animation: ve-float 8s ease-in-out infinite;
+    animation: ve-float 5s ease-in-out infinite;
   }
 
   &__float--palms {
@@ -150,7 +145,7 @@
     bottom: 7vh;
     width: clamp(180px, 22vw, 420px);
     z-index: 5;
-    animation: ve-float 8s ease-in-out infinite;
+    animation: ve-float 5s ease-in-out infinite;
   }
 
   .ve-scene__ember {

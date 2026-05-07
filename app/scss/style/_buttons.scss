@@ -1,82 +1,39 @@
 @use '../base/globals' as *;
 
-
-.primary-button, .secondary-button, .search-submit, .load-more,
-.swpm-login-form-submit, .swpm-pw-reset-submit,
-.swpm-edit-profile-submit {
-    @include flex-center;
-    width: fit-content;
-    min-width: 160px;
-    height: 40px;
-    padding: 0 $spacer/2;
-    color: $cinder;
-    font-family: $font-secondary;
-    font-weight: bold;
-    text-transform: uppercase;
-    background: $saffron;
-    cursor: pointer;
-
-    &:hover {
-        color: $cinder;
-    }
+.primary-button {
+  @include flex-center;
+  position: relative;
+  overflow: hidden;
+  width: fit-content;
+  min-width: 160px;
+  height: 40px;
+  padding: 0 $spacer/2;
+  border: 1px solid $saffron;
+  border-radius: 2px;
+  color: $ember;
+  font-family: $font-secondary;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: $saffron;
+  cursor: pointer;
+  z-index: 1;
+  transition: color .2s ease-in-out;
 }
 
-.secondary-button {
-    border: 1px solid $saffron;
-    color: $saffron;
-    background: unset;
-
-    &:hover {
-        color: $saffron;
-    }
+.primary-button:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 0;
+  background-color: $ember;
+  transition: width .2s ease-in-out;
+  z-index: -1;
 }
 
-.frm_style_formidable-style.with_frm_style .frm_submit button,
-.frm_style_formidable-style.with_frm_style .frm_submit button:hover,
-.frm_style_formidable-style.with_frm_style .frm_submit button:active {
-    @include flex-center;
-    width: 100%;
-    min-height: 48px;
-    margin: 32px auto;
-    padding: 0 24px;
-    border: 1px solid $saffron;
-    color: $saffron !important;
-    font-size: 22px;
-    font-weight: bold;
-    font-family: $font-secondary;
-    background: unset;
-    box-shadow: unset;
-    cursor: pointer;
-
-
-    &:hover {
-        color: $saffron;
-    }
+.primary-button:hover {
+  color: $saffron;
 }
 
-.read-more {
-    display: flex;
-    align-items: center;
-    font-size: 16px;
-
-    &:after {
-        content: '\f30b';
-        margin-left: 8px;
-        font-family: fontawesome;
-    }
+.primary-button:hover:before {
+  width: 100%;
 }
-
-.load-more {
-    @include container;
-    width: fit-content !important;
-    margin-bottom: $spacer;
-}
-
-// Two adjacent buttons
-.buttons {
-    @include flex-center;
-    max-width: 60%;
-    margin: auto;
-}
-
-

@@ -35,48 +35,18 @@ h3,
 h4,
 h5,
 h6 {
-  margin-bottom: $spacer/2;
+  margin-bottom: 16px;
   font-family: $font-secondary;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0.04em;
+  color: $saffron;
 }
 
 h1 {
-  font-size: 48px;
+  margin-bottom: 32px;
+  font-size: clamp(48px, 7vw, 112px);
   line-height: 1;
-
-  @include respond-up(small){
-    font-size: 64px;
-    line-height: 72px;
-  }
-
-  @include respond-up(large){
-    font-size: 72px;
-    line-height: 80px;
-  }
-}
-
-h2 {
-  font-size: 28px;
-  line-height: 36px;
-
-  @include respond-up(small){
-    font-size: 40px;
-    line-height: 48px;
-  }
-}
-
-h3 {
-  font-size: 24px;
-  line-height: 32px;
-
-  @include respond-up(small){
-  font-size: 32px;
-  line-height: 40px;
-  }
-}
-
-h4 {
-  font-size: 24px;
-  line-height: 32px;
 }
 
 p {
