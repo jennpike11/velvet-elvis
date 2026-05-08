@@ -5,8 +5,13 @@
   &__wrapper {
     position: relative;
     z-index: 5;
-    margin: auto 40px 0 auto;
-    font-size: 11px;
+    margin: auto 12px 0 auto;
+    font-size: 9px;
+
+    @include respond-up(small){
+      margin: auto 40px 0 auto;
+      font-size: 11px;
+    }
   }
 
   &__registration {

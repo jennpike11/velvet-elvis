@@ -49,14 +49,14 @@
 
         <div class="ve-scene__copy">
           <?php if ($heading) : ?>
-            <h1><?php echo esc_html($heading); ?></h1>
+            <h1 class="ve-scene__heading"><?php echo esc_html($heading); ?></h1>
+          <?php endif; ?>
+
+          <?php if ($subheading) : ?>
+            <h2 class="ve-scene__subheading"><?php echo esc_html($subheading); ?></h2>
           <?php endif; ?>
 
           <div class="ve-scene__description">
-            <?php if ($subheading) : ?>
-              <h2><?php echo esc_html($subheading); ?></h2>
-            <?php endif; ?>
-
             <?php if ($description) : ?>
               <?php echo wp_kses_post($description); ?>
             <?php endif; ?>

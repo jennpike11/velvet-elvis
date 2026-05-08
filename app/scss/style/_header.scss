@@ -9,8 +9,13 @@
 
   .menu {
     position: absolute;
-    top: 20px;
-    right: 40px;
+    top: 8px;
+    right: 12px;
+
+    @include respond-up(small){
+      top: 20px;
+      right: 40px;
+    }
 
     a {
       font-size: 0;

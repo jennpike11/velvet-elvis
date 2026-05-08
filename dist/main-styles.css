@@ -106,19 +106,34 @@ h3,
 h4,
 h5,
 h6 {
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   font-family: "Ojuju", sans-serif;
   font-size: 24px;
   line-height: 32px;
   letter-spacing: 0.04em;
   color: #f2b36b;
 }
+@media (min-width: 768px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 32px;
+  }
+}
 
 h1 {
   margin-bottom: 32px;
-  font-size: clamp(48px, 7vw, 112px);
+  font-size: clamp(48px, 8vw, 112px);
   line-height: 1;
   color: #f2b36b;
+}
+@media (min-width: 768px) {
+  h1 {
+    margin-bottom: 40px;
+  }
 }
 
 p {
@@ -242,8 +257,14 @@ img {
 .site-footer__wrapper {
   position: relative;
   z-index: 5;
-  margin: auto 40px 0 auto;
-  font-size: 11px;
+  margin: auto 12px 0 auto;
+  font-size: 9px;
+}
+@media (min-width: 768px) {
+  .site-footer__wrapper {
+    margin: auto 40px 0 auto;
+    font-size: 11px;
+  }
 }
 .site-footer__registration {
   padding: 16px 0;
@@ -407,8 +428,14 @@ img {
 }
 .site-header .menu {
   position: absolute;
-  top: 20px;
-  right: 40px;
+  top: 8px;
+  right: 12px;
+}
+@media (min-width: 768px) {
+  .site-header .menu {
+    top: 20px;
+    right: 40px;
+  }
 }
 .site-header .menu a {
   font-size: 0;
@@ -442,6 +469,7 @@ img {
   position: fixed;
   inset: 0;
   height: 100vh;
+  height: 100svh;
   overflow: hidden;
   background: #160807;
 }
@@ -450,6 +478,8 @@ img {
   display: flex;
   position: absolute;
   inset: 0;
+  min-height: 100vh;
+  min-height: 100svh;
   opacity: 0;
   pointer-events: none;
   transform: scale(1.015);
@@ -468,6 +498,11 @@ img {
   pointer-events: none;
   transform: scale(1.01);
   z-index: 2;
+}
+@media (max-width: 811px) {
+  .ve-scene--hula .ve-scene__description {
+    max-height: 240px;
+  }
 }
 .ve-scene__bg, .ve-scene__mid {
   position: absolute;
@@ -500,7 +535,7 @@ img {
   position: relative;
   z-index: 6;
   max-width: 960px;
-  margin: 0 4vw 6vh auto;
+  margin: 0 4vw 6vh 44vw;
   opacity: 0;
   transition: opacity 500ms ease-in-out;
 }
@@ -512,17 +547,48 @@ img {
   opacity: 0;
   transition: none;
 }
+@media (max-width: 1279px) {
+  .ve-scene__copy {
+    align-self: flex-start;
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 12vh 32px 0;
+    text-align: center;
+  }
+}
+.ve-scene__subheading {
+  text-align: center;
+}
+@media (min-width: 1024px) {
+  .ve-scene__subheading {
+    text-align: unset;
+  }
+}
 .ve-scene__description {
-  margin: 24px 0 0;
   max-width: 640px;
   max-height: 240px;
   overflow-y: scroll;
-  font-size: clamp(18px, 2vw, 24px);
+  margin-bottom: 32px;
+  font-size: clamp(18px, 2vw, 18px);
   line-height: 1.2;
   color: #f2b36b;
+  text-align: left;
+}
+@media (max-width: 811px) {
+  .ve-scene__description {
+    max-height: 560px;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 .ve-scene__button {
   margin-top: 32px;
+}
+@media (max-width: 1279px) {
+  .ve-scene__button .primary-button {
+    margin: auto;
+  }
 }
 .ve-scene__float {
   position: absolute;
@@ -539,6 +605,14 @@ img {
   height: 80vh;
   animation: ve-sway 5s ease-in-out infinite;
 }
+@media (max-width: 1279px) {
+  .ve-scene__float--hula {
+    left: 50%;
+    bottom: 20px;
+    height: 44vh;
+    animation: ve-sway-center 5s ease-in-out infinite;
+  }
+}
 .ve-scene__bug {
   position: absolute;
   top: 28px;
@@ -553,13 +627,35 @@ img {
   opacity: 0;
   transition: none;
 }
+@media (max-width: 1279px) {
+  .ve-scene__bug {
+    top: 72px;
+    right: 32px;
+    width: 44px;
+  }
+}
+@media (max-width: 811px) {
+  .ve-scene__bug {
+    top: 64px;
+    right: 24px;
+    width: 36px;
+  }
+}
 .ve-scene__float--players {
-  left: 6vw;
-  bottom: 20vh;
-  width: 400px;
+  left: 50%;
+  bottom: 24px;
   z-index: 5;
+  height: 140px;
   pointer-events: none;
-  animation: ve-float 5s ease-in-out infinite;
+  animation: ve-float-center 5s ease-in-out infinite;
+}
+@media (min-width: 1280px) {
+  .ve-scene__float--players {
+    left: 6vw;
+    bottom: 20vh;
+    height: 200px;
+    animation: ve-float 5s ease-in-out infinite;
+  }
 }
 .ve-scene__float--palms {
   left: 0;
@@ -567,6 +663,19 @@ img {
   height: 88vh;
   z-index: 4;
   pointer-events: none;
+}
+@media (max-width: 1279px) {
+  .ve-scene__float--palms {
+    left: 50%;
+    bottom: 0;
+    height: 58vh;
+    transform: translateX(-50%);
+  }
+}
+@media (max-width: 811px) {
+  .ve-scene__float--palms {
+    height: 48vh;
+  }
 }
 .ve-scene__float--volcano {
   position: absolute;
@@ -577,12 +686,35 @@ img {
   z-index: 4;
   pointer-events: none;
 }
+@media (max-width: 1279px) {
+  .ve-scene__float--volcano {
+    left: 50%;
+    bottom: 0;
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    transform: translateX(-50%);
+  }
+}
 .ve-scene__float--volcano-flowers {
   left: 3vw;
   bottom: 7vh;
   width: clamp(180px, 22vw, 420px);
   z-index: 5;
   animation: ve-float 5s ease-in-out infinite;
+}
+@media (max-width: 1279px) {
+  .ve-scene__float--volcano-flowers {
+    left: 50%;
+    bottom: 1vh;
+    width: 240px;
+    animation: ve-float-center 5s ease-in-out infinite;
+  }
+}
+@media (max-width: 811px) {
+  .ve-scene__float--volcano-flowers {
+    width: 180px;
+  }
 }
 .ve-scene .ve-scene__ember {
   position: absolute;
@@ -604,6 +736,12 @@ img {
   height: 10px;
   animation-duration: 4s;
 }
+@media (max-width: 1279px) {
+  .ve-scene .ve-scene__ember--one {
+    left: 48%;
+    top: 48%;
+  }
+}
 .ve-scene .ve-scene__ember--two {
   left: 42%;
   top: 17%;
@@ -611,6 +749,12 @@ img {
   height: 7px;
   animation-duration: 5s;
   animation-delay: 1.2s;
+}
+@media (max-width: 1279px) {
+  .ve-scene .ve-scene__ember--two {
+    left: 53%;
+    top: 45%;
+  }
 }
 .ve-scene .ve-scene__ember--three {
   left: 37%;
@@ -629,6 +773,11 @@ img {
   animation-delay: 2s;
 }
 
+@media (max-width: 1279px) {
+  h1 {
+    font-size: clamp(44px, 11vw, 86px);
+  }
+}
 .ve-scroll {
   display: none;
 }
@@ -645,12 +794,28 @@ img {
     transform: translateY(-8px) rotate(1deg);
   }
 }
+@keyframes ve-sway-center {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-8px) rotate(1deg);
+  }
+}
 @keyframes ve-float {
   0%, 100% {
     transform: translateY(0) rotate(0);
   }
   50% {
     transform: translateY(-14px) rotate(2deg);
+  }
+}
+@keyframes ve-float-center {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-14px) rotate(2deg);
   }
 }
 @keyframes ve-ember-rise {
