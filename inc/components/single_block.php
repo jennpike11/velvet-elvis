@@ -38,6 +38,8 @@
         <?php if ($scene_index === 1) : ?>
           <div class="ve-scene__ember ve-scene__ember--one"></div>
           <div class="ve-scene__ember ve-scene__ember--two"></div>
+          <div class="ve-scene__ember ve-scene__ember--three"></div>
+          <div class="ve-scene__ember ve-scene__ember--four"></div>
           <img class="ve-scene__float ve-scene__float--volcano" src="https://dev-velet-elvis.pikexdigital.com/wp-content/uploads/2026/05/volcano.png" alt="">
           <img class="ve-scene__float ve-scene__float--volcano-flowers" src="https://dev-velet-elvis.pikexdigital.com/wp-content/uploads/2026/05/flowers.png" alt="">
         <?php endif; ?>

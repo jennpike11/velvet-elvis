@@ -752,47 +752,115 @@ img {
   transition: none;
 }
 .ve-scene .ve-scene__ember--one {
-  left: 48%;
-  top: 48%;
-  width: 10px;
-  height: 10px;
+  top: 64%;
+  left: 40%;
+  width: 8px;
+  height: 8px;
   animation-duration: 4s;
+}
+@media (min-width: 812px) {
+  .ve-scene .ve-scene__ember--one {
+    top: 52%;
+    left: 48%;
+    width: 10px;
+    height: 10px;
+  }
 }
 @media (min-width: 1024px) {
   .ve-scene .ve-scene__ember--one {
-    left: 39%;
-    top: 21%;
+    top: 24%;
+    left: 24%;
+  }
+}
+@media (min-width: 1280px) {
+  .ve-scene .ve-scene__ember--one {
+    top: 20%;
+    left: 30%;
   }
 }
 .ve-scene .ve-scene__ember--two {
-  left: 53%;
-  top: 45%;
-  width: 7px;
-  height: 7px;
+  top: 60%;
+  left: 40%;
+  width: 6px;
+  height: 6px;
   animation-duration: 5s;
   animation-delay: 1.2s;
 }
+@media (min-width: 812px) {
+  .ve-scene .ve-scene__ember--two {
+    top: 49%;
+    left: 53%;
+    width: 7px;
+    height: 7px;
+  }
+}
 @media (min-width: 1024px) {
   .ve-scene .ve-scene__ember--two {
-    left: 42%;
-    top: 17%;
+    top: 30%;
+    left: 34%;
+  }
+}
+@media (min-width: 1280px) {
+  .ve-scene .ve-scene__ember--two {
+    top: 24%;
+    left: 36%;
   }
 }
 .ve-scene .ve-scene__ember--three {
-  left: 37%;
-  top: 25%;
-  width: 13px;
-  height: 13px;
+  top: 62%;
+  left: 32%;
+  width: 9px;
+  height: 9px;
   animation-duration: 4.8s;
   animation-delay: 0.6s;
 }
+@media (min-width: 812px) {
+  .ve-scene .ve-scene__ember--three {
+    top: 51%;
+    left: 45%;
+    width: 13px;
+    height: 13px;
+  }
+}
+@media (min-width: 1024px) {
+  .ve-scene .ve-scene__ember--three {
+    top: 38%;
+    left: 30%;
+  }
+}
+@media (min-width: 1280px) {
+  .ve-scene .ve-scene__ember--three {
+    top: 30%;
+    left: 32%;
+  }
+}
 .ve-scene .ve-scene__ember--four {
-  left: 44%;
-  top: 24%;
-  width: 6px;
-  height: 6px;
+  top: 54%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
   animation-duration: 5.2s;
   animation-delay: 2s;
+}
+@media (min-width: 812px) {
+  .ve-scene .ve-scene__ember--four {
+    top: 48%;
+    left: 56%;
+    width: 6px;
+    height: 6px;
+  }
+}
+@media (min-width: 1024px) {
+  .ve-scene .ve-scene__ember--four {
+    top: 46%;
+    left: 32%;
+  }
+}
+@media (min-width: 1280px) {
+  .ve-scene .ve-scene__ember--four {
+    top: 16%;
+    left: 38%;
+  }
 }
 
 h1 {
@@ -842,14 +910,14 @@ h1 {
 @keyframes ve-ember-rise {
   0% {
     opacity: 0;
-    transform: translateY(12px) scale(0.6);
+    transform: translateY(3vh) scale(0.6);
   }
   20% {
     opacity: 1;
   }
   100% {
     opacity: 0;
-    transform: translateY(-140px) translateX(12px) scale(1.3);
+    transform: translateY(clamp(-90px, -14vh, -140px)) translateX(clamp(6px, 2vw, 12px)) scale(1.3);
   }
 }
 @keyframes ve-bug-fly {
@@ -884,6 +952,16 @@ h1 {
   100% {
     opacity: 0;
     transform: translate(150px, 80px) rotate(22deg) scale(0.86);
+  }
+}
+@media (max-width: 1023px) and (orientation: landscape) {
+  .ve-scene__copy {
+    max-height: 320px;
+    overflow-y: scroll;
+  }
+  .ve-scene__copy .ve-scene__description {
+    max-height: unset;
+    overflow-y: unset;
   }
 }
 
