@@ -636,8 +636,8 @@ img {
 }
 .ve-scene__bug {
   position: absolute;
-  top: 64px;
-  right: 24px;
+  top: 24px;
+  right: 48px;
   width: 36px;
   z-index: 8;
   pointer-events: none;
@@ -648,17 +648,17 @@ img {
   opacity: 0;
   transition: none;
 }
-@media (min-width: 812px) {
+@media (min-width: 768px) {
   .ve-scene__bug {
-    top: 72px;
-    right: 32px;
+    top: 32px;
+    right: 88px;
     width: 44px;
   }
 }
 @media (min-width: 1024px) {
   .ve-scene__bug {
-    top: 28px;
-    right: 160px;
+    top: 24px;
+    right: 104px;
     width: 64px;
   }
 }

@@ -180,8 +180,8 @@
 
   &__bug {
     position: absolute;
-    top: 64px;
-    right: 24px;
+    top: 24px;
+    right: 48px;
     width: 36px;
     z-index: 8;
     pointer-events: none;
@@ -193,15 +193,15 @@
       transition: none;
     }
 
-    @include respond-up(medium) {
-      top: 72px;
-      right: 32px;
+    @include respond-up(small) {
+      top: 32px;
+      right: 88px;
       width: 44px;
     }
 
     @include respond-up(large) {
-      top: 28px;
-      right: 160px;
+      top: 24px;
+      right: 104px;
       width: 64px;
     }
   }
