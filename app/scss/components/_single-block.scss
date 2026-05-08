@@ -46,8 +46,10 @@
 
   &--hula {
     .ve-scene__description {
-      @include respond-down(small) {
-        max-height: 240px;
+      max-height: 240px;
+
+      @include respond-up(medium) {
+        max-height: unset;
       }
     }
   }
@@ -73,11 +75,14 @@
 
   &__copy {
     @include container;
-    align-self: center;
+    align-self: flex-start;
     position: relative;
     z-index: 6;
-    max-width: 960px;
-    margin: 0 4vw 6vh 44vw;
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 8vh 32px 0;
+    text-align: center;
     opacity: 0;
     transition: opacity 500ms ease-in-out;
 
@@ -91,38 +96,44 @@
       transition: none;
     }
 
-    @include respond-down(large) {
-      align-self: flex-start;
-      width: 100%;
-      max-width: 760px;
-      margin: 0 auto;
+     @include respond-up(small) {
       padding: 12vh 32px 0;
-      text-align: center;
+     }
+
+    @include respond-up(large) {
+      align-self: center;
+      width: auto;
+      max-width: 960px;
+      margin: 0 4vw 6vh 44vw;
+      padding: 0;
+      text-align: left;
     }
   }
 
   &__subheading {
     text-align: center;
 
-    @include respond-up(large){
+    @include respond-up(large) {
       text-align: unset;
     }
   }
 
   &__description {
     max-width: 640px;
-    max-height: 240px;
+    max-height: 560px;
     overflow-y: scroll;
     margin-bottom: 32px;
+    margin-right: auto;
+    margin-left: auto;
     font-size: clamp(18px, 2vw, 18px);
     line-height: 1.2;
     color: #f2b36b;
     text-align: left;
 
-   @include respond-down(small) {
-      max-height: 560px;
-      margin-right: auto;
-      margin-left: auto;
+    @include respond-up(medium) {
+      max-height: 240px;
+      margin-right: unset;
+      margin-left: unset;
     }
   }
 
@@ -130,8 +141,10 @@
     margin-top: 32px;
 
     .primary-button {
-      @include respond-down(large){
-        margin: auto;
+      margin: auto;
+
+      @include respond-up(large) {
+        margin: unset;
       }
     }
   }
@@ -148,24 +161,28 @@
   }
 
   &__float--hula {
-    left: 4vw;
-    bottom: 8vh;
-    height: 80vh;
-    animation: ve-sway 5s ease-in-out infinite;
+    left: 50%;
+    bottom: 20px;
+    height: 44vh;
+    animation: ve-sway-center 5s ease-in-out infinite;
 
-    @include respond-down(large){
-      left: 50%;
-      bottom: 20px;
-      height: 44vh;
-      animation: ve-sway-center 5s ease-in-out infinite;
+    @include respond-up(large) {
+      left: 4vw;
+      bottom: 8vh;
+      height: 70vh;
+      animation: ve-sway 5s ease-in-out infinite;
+    }
+
+    @include respond-up(xlarge) {
+      height: 80vh;
     }
   }
 
   &__bug {
     position: absolute;
-    top: 28px;
-    right: 160px;
-    width: 64px;
+    top: 64px;
+    right: 24px;
+    width: 36px;
     z-index: 8;
     pointer-events: none;
     opacity: 0;
@@ -176,16 +193,16 @@
       transition: none;
     }
 
-    @include respond-down(large) {
+    @include respond-up(medium) {
       top: 72px;
       right: 32px;
       width: 44px;
     }
 
-    @include respond-down(small) {
-      top: 64px;
-      right: 24px;
-      width: 36px;
+    @include respond-up(large) {
+      top: 28px;
+      right: 160px;
+      width: 64px;
     }
   }
 
@@ -197,68 +214,69 @@
     pointer-events: none;
     animation: ve-float-center 5s ease-in-out infinite;
 
-     @include respond-up(xlarge) {
+    @include respond-up(large) {
       left: 6vw;
       bottom: 20vh;
       height: 200px;
       animation: ve-float 5s ease-in-out infinite;
-     }
+    }
   }
 
   &__float--palms {
-    left: 0;
-    bottom: 12vh;
-    height: 88vh;
+    left: 50%;
+    bottom: 0;
+    height: 48vh;
     z-index: 4;
     pointer-events: none;
+    transform: translateX(-50%);
 
-    @include respond-down(large) {
-      left: 50%;
-      bottom: 0;
+    @include respond-up(medium) {
       height: 58vh;
-      transform: translateX(-50%);
     }
 
-    @include respond-down(small) {
-      height: 48vh;
+    @include respond-up(large) {
+      left: 0;
+      bottom: 12vh;
+      height: 88vh;
+      transform: none;
     }
   }
 
   &__float--volcano {
     position: absolute;
-    left: 0;
+    left: 50%;
     bottom: 0;
     width: 100%;
-    height: auto;
+    height: 320px;
+    object-fit: cover;
     z-index: 4;
     pointer-events: none;
+    transform: translateX(-50%);
 
-    @include respond-down(large) {
-      left: 50%;
-      bottom: 0;
+    @include respond-up(large) {
+      left: 0;
       width: 100%;
-      height: 320px;
-      object-fit: cover;
-      transform: translateX(-50%);
+      height: auto;
+      transform: none;
     }
   }
 
   &__float--volcano-flowers {
-    left: 3vw;
-    bottom: 7vh;
-    width: clamp(180px, 22vw, 420px);
+    left: 50%;
+    bottom: 1vh;
+    width: 180px;
     z-index: 5;
-    animation: ve-float 5s ease-in-out infinite;
+    animation: ve-float-center 5s ease-in-out infinite;
 
-    @include respond-down(large) {
-      left: 50%;
-      bottom: 1vh;
+    @include respond-up(medium) {
       width: 240px;
-      animation: ve-float-center 5s ease-in-out infinite;
     }
 
-    @include respond-down(small) {
-      width: 180px;
+    @include respond-up(large) {
+      left: 3vw;
+      bottom: 7vh;
+      width: clamp(180px, 22vw, 420px);
+      animation: ve-float 5s ease-in-out infinite;
     }
   }
 
@@ -282,29 +300,29 @@
   }
 
   .ve-scene__ember--one {
-    left: 39%;
-    top: 21%;
+    left: 48%;
+    top: 48%;
     width: 10px;
     height: 10px;
     animation-duration: 4s;
 
-    @include respond-down(large) {
-      left: 48%;
-      top: 48%;
+    @include respond-up(large) {
+      left: 39%;
+      top: 21%;
     }
   }
 
   .ve-scene__ember--two {
-    left: 42%;
-    top: 17%;
+    left: 53%;
+    top: 45%;
     width: 7px;
     height: 7px;
     animation-duration: 5s;
     animation-delay: 1.2s;
 
-    @include respond-down(large) {
-      left: 53%;
-      top: 45%;
+    @include respond-up(large) {
+      left: 42%;
+      top: 17%;
     }
   }
 
@@ -327,10 +345,8 @@
   }
 }
 
-@include respond-down(large) {
-  h1 {
-    font-size: clamp(44px, 11vw, 86px);
-  }
+h1 {
+  font-size: clamp(44px, 11vw, 86px);
 }
 
 .ve-scroll {

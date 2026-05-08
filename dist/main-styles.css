@@ -499,9 +499,12 @@ img {
   transform: scale(1.01);
   z-index: 2;
 }
-@media (max-width: 811px) {
+.ve-scene--hula .ve-scene__description {
+  max-height: 240px;
+}
+@media (min-width: 812px) {
   .ve-scene--hula .ve-scene__description {
-    max-height: 240px;
+    max-height: unset;
   }
 }
 .ve-scene__bg, .ve-scene__mid {
@@ -531,11 +534,14 @@ img {
   }
 }
 .ve-scene__copy {
-  align-self: center;
+  align-self: flex-start;
   position: relative;
   z-index: 6;
-  max-width: 960px;
-  margin: 0 4vw 6vh 44vw;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 8vh 32px 0;
+  text-align: center;
   opacity: 0;
   transition: opacity 500ms ease-in-out;
 }
@@ -547,14 +553,19 @@ img {
   opacity: 0;
   transition: none;
 }
-@media (max-width: 1279px) {
+@media (min-width: 768px) {
   .ve-scene__copy {
-    align-self: flex-start;
-    width: 100%;
-    max-width: 760px;
-    margin: 0 auto;
     padding: 12vh 32px 0;
-    text-align: center;
+  }
+}
+@media (min-width: 1024px) {
+  .ve-scene__copy {
+    align-self: center;
+    width: auto;
+    max-width: 960px;
+    margin: 0 4vw 6vh 44vw;
+    padding: 0;
+    text-align: left;
   }
 }
 .ve-scene__subheading {
@@ -567,27 +578,32 @@ img {
 }
 .ve-scene__description {
   max-width: 640px;
-  max-height: 240px;
+  max-height: 560px;
   overflow-y: scroll;
   margin-bottom: 32px;
+  margin-right: auto;
+  margin-left: auto;
   font-size: clamp(18px, 2vw, 18px);
   line-height: 1.2;
   color: #f2b36b;
   text-align: left;
 }
-@media (max-width: 811px) {
+@media (min-width: 812px) {
   .ve-scene__description {
-    max-height: 560px;
-    margin-right: auto;
-    margin-left: auto;
+    max-height: 240px;
+    margin-right: unset;
+    margin-left: unset;
   }
 }
 .ve-scene__button {
   margin-top: 32px;
 }
-@media (max-width: 1279px) {
+.ve-scene__button .primary-button {
+  margin: auto;
+}
+@media (min-width: 1024px) {
   .ve-scene__button .primary-button {
-    margin: auto;
+    margin: unset;
   }
 }
 .ve-scene__float {
@@ -600,24 +616,29 @@ img {
   transition: none;
 }
 .ve-scene__float--hula {
-  left: 4vw;
-  bottom: 8vh;
-  height: 80vh;
-  animation: ve-sway 5s ease-in-out infinite;
+  left: 50%;
+  bottom: 20px;
+  height: 44vh;
+  animation: ve-sway-center 5s ease-in-out infinite;
 }
-@media (max-width: 1279px) {
+@media (min-width: 1024px) {
   .ve-scene__float--hula {
-    left: 50%;
-    bottom: 20px;
-    height: 44vh;
-    animation: ve-sway-center 5s ease-in-out infinite;
+    left: 4vw;
+    bottom: 8vh;
+    height: 70vh;
+    animation: ve-sway 5s ease-in-out infinite;
+  }
+}
+@media (min-width: 1280px) {
+  .ve-scene__float--hula {
+    height: 80vh;
   }
 }
 .ve-scene__bug {
   position: absolute;
-  top: 28px;
-  right: 160px;
-  width: 64px;
+  top: 64px;
+  right: 24px;
+  width: 36px;
   z-index: 8;
   pointer-events: none;
   opacity: 0;
@@ -627,18 +648,18 @@ img {
   opacity: 0;
   transition: none;
 }
-@media (max-width: 1279px) {
+@media (min-width: 812px) {
   .ve-scene__bug {
     top: 72px;
     right: 32px;
     width: 44px;
   }
 }
-@media (max-width: 811px) {
+@media (min-width: 1024px) {
   .ve-scene__bug {
-    top: 64px;
-    right: 24px;
-    width: 36px;
+    top: 28px;
+    right: 160px;
+    width: 64px;
   }
 }
 .ve-scene__float--players {
@@ -649,7 +670,7 @@ img {
   pointer-events: none;
   animation: ve-float-center 5s ease-in-out infinite;
 }
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   .ve-scene__float--players {
     left: 6vw;
     bottom: 20vh;
@@ -658,62 +679,63 @@ img {
   }
 }
 .ve-scene__float--palms {
-  left: 0;
-  bottom: 12vh;
-  height: 88vh;
+  left: 50%;
+  bottom: 0;
+  height: 48vh;
   z-index: 4;
   pointer-events: none;
+  transform: translateX(-50%);
 }
-@media (max-width: 1279px) {
+@media (min-width: 812px) {
   .ve-scene__float--palms {
-    left: 50%;
-    bottom: 0;
     height: 58vh;
-    transform: translateX(-50%);
   }
 }
-@media (max-width: 811px) {
+@media (min-width: 1024px) {
   .ve-scene__float--palms {
-    height: 48vh;
+    left: 0;
+    bottom: 12vh;
+    height: 88vh;
+    transform: none;
   }
 }
 .ve-scene__float--volcano {
   position: absolute;
-  left: 0;
+  left: 50%;
   bottom: 0;
   width: 100%;
-  height: auto;
+  height: 320px;
+  object-fit: cover;
   z-index: 4;
   pointer-events: none;
+  transform: translateX(-50%);
 }
-@media (max-width: 1279px) {
+@media (min-width: 1024px) {
   .ve-scene__float--volcano {
-    left: 50%;
-    bottom: 0;
+    left: 0;
     width: 100%;
-    height: 320px;
-    object-fit: cover;
-    transform: translateX(-50%);
+    height: auto;
+    transform: none;
   }
 }
 .ve-scene__float--volcano-flowers {
-  left: 3vw;
-  bottom: 7vh;
-  width: clamp(180px, 22vw, 420px);
+  left: 50%;
+  bottom: 1vh;
+  width: 180px;
   z-index: 5;
-  animation: ve-float 5s ease-in-out infinite;
+  animation: ve-float-center 5s ease-in-out infinite;
 }
-@media (max-width: 1279px) {
+@media (min-width: 812px) {
   .ve-scene__float--volcano-flowers {
-    left: 50%;
-    bottom: 1vh;
     width: 240px;
-    animation: ve-float-center 5s ease-in-out infinite;
   }
 }
-@media (max-width: 811px) {
+@media (min-width: 1024px) {
   .ve-scene__float--volcano-flowers {
-    width: 180px;
+    left: 3vw;
+    bottom: 7vh;
+    width: clamp(180px, 22vw, 420px);
+    animation: ve-float 5s ease-in-out infinite;
   }
 }
 .ve-scene .ve-scene__ember {
@@ -730,30 +752,30 @@ img {
   transition: none;
 }
 .ve-scene .ve-scene__ember--one {
-  left: 39%;
-  top: 21%;
+  left: 48%;
+  top: 48%;
   width: 10px;
   height: 10px;
   animation-duration: 4s;
 }
-@media (max-width: 1279px) {
+@media (min-width: 1024px) {
   .ve-scene .ve-scene__ember--one {
-    left: 48%;
-    top: 48%;
+    left: 39%;
+    top: 21%;
   }
 }
 .ve-scene .ve-scene__ember--two {
-  left: 42%;
-  top: 17%;
+  left: 53%;
+  top: 45%;
   width: 7px;
   height: 7px;
   animation-duration: 5s;
   animation-delay: 1.2s;
 }
-@media (max-width: 1279px) {
+@media (min-width: 1024px) {
   .ve-scene .ve-scene__ember--two {
-    left: 53%;
-    top: 45%;
+    left: 42%;
+    top: 17%;
   }
 }
 .ve-scene .ve-scene__ember--three {
@@ -773,11 +795,10 @@ img {
   animation-delay: 2s;
 }
 
-@media (max-width: 1279px) {
-  h1 {
-    font-size: clamp(44px, 11vw, 86px);
-  }
+h1 {
+  font-size: clamp(44px, 11vw, 86px);
 }
+
 .ve-scroll {
   display: none;
 }
