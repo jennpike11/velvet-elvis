@@ -10,7 +10,7 @@
 ?>
 
 <div class="entry-content">
-	<?php get_template_part( './inc/partials/page-builder'); ?>	
+	<?php get_template_part( './inc/components/single_block'); ?>	
 </div><!-- .entry-content -->
 
 

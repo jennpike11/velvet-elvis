@@ -40,13 +40,14 @@ h6 {
   font-size: 24px;
   line-height: 32px;
   letter-spacing: 0.04em;
-  color: $saffron;
+  color: $lava-glow;
 }
 
 h1 {
   margin-bottom: 32px;
   font-size: clamp(48px, 7vw, 112px);
   line-height: 1;
+  color: #f2b36b;
 }
 
 p {
@@ -57,9 +58,14 @@ p {
   }
 }
  
-a, a:hover {
+a {
   text-decoration: none;
   color: inherit;
+  transition: color .2s ease-in-out;
+
+  &:hover {
+    color: $terracotta;
+  }
 }
 
 li {
@@ -85,104 +91,6 @@ img {
 .show-on-mobile {
   @include respond-up(large){
     display: none;
-  }
-}
-
-.padding--xsmall {
-  padding-top: $spacer/2;
-  padding-bottom: $spacer/2;
-}
-
-.padding--small {
-  padding-top: $spacer;
-  padding-bottom: $spacer;
-}
-
-.padding--medium {
-  padding-top: $spacer;
-  padding-bottom: $spacer;
-  
-  @include respond-up(small) {
-    padding-top: $spacer*2;
-    padding-bottom: $spacer*2;
-  }
-}
-
-.padding--large {
-  padding-top: $spacer;
-  padding-bottom: $spacer;
-
-  @include respond-up(small){
-    padding-top: $spacer*3;
-    padding-bottom: $spacer*3;
-  }
-}
-
-.padding--xlarge {
-  padding-top: $spacer;
-  padding-bottom: $spacer;
-  
-  @include respond-up(small) {
-    padding-top: $spacer*4;
-    padding-bottom: $spacer*4;
-  }
-}
-
-.width--small {
-  max-width: 640px !important;
-}
-
-.width--medium {
-  max-width: 888px !important;
-}
-
-// Background colors for sections, buttons, etc
-.background-color {
-  &--black {
-    background-color: $cinder;
-  }
-
-  &--white {
-    background-color: $white;
-  }  
-
-  &--green {
-    background-color: $crimson;
-  }
-}
-
-// Font color options
-.color {
-  &--white {
-   color: $white;
-
-    &:hover {
-      color: $white;
-    }
-  }
-
-  &--black {
-    color: $cinder;
-
-    &:hover {
-      color: $cinder;
-    }
-  }
-
-  &--green {
-    color: $crimson;
-
-    &:hover {
-      color: $crimson;
-    }
-  }
-
-  &--gold {
-    color: $saffron;
-
-    &:hover {
-      color: $saffron;
-    }
   }
 }
 
@@ -233,61 +141,4 @@ img {
 .youtube:after {
   content: '\f167';
   font-family: fontawesome;
-}
-
-.legal-pages {
-  margin: 120px 0 64px;
-
-  .entry-title {
-    max-width: 640px;
-    margin: 0 auto 32px;
-    text-align: center;
-    font-size: 28px;
-    line-height: 36px;
-    font-family: $font-secondary;
-  }
-
-  a, a:hover {
-    color: $cinder;
-    text-decoration: underline;
-  }
-}  
-
-// Instagram feed tweaks
-#sb_instagram .sb_instagram_header,
-.sb_instagram_header, #sb_instagram #sbi_load {
-  display: none !important;
-}
-
-#sb_instagram.sbi_col_4 #sbi_images .sbi_item {
-  padding: 0 8px !important;
-}
-
-#sb_instagram .sbi_photo {
-  height: auto !important;
-}
-
-#sb_instagram.sbi_palette_custom_1 {
-  overflow: hidden !important;
-}
-
-// For delivery page
-.delivery {
-  @include respond-up(small){
-    @include flex-between;
-  }
-
-  &__item {
-    @include respond-up(small){
-      width: calc(50% - 24px);
-    }
-
-    &:first-of-type {
-      margin-bottom: $spacer;
-
-      @include respond-up(small){
-        margin-bottom: unset;
-      }
-    }
-  }
 }

@@ -1,10 +1,10 @@
-<?php // Hero Block
+<?php // single Block
 
-if (function_exists('have_rows') && have_rows('hero_block')) :
-  while (have_rows('hero_block')) : the_row();
+//if (function_exists('have_rows') && have_rows('single_block')) :
+  //while (have_rows('single_block')) : the_row();
 ?>
 
-<section class="hero-block__wrapper">
+<section class="single-block__wrapper">
   <main class="ve-site">
 
   <section class="ve-stage">
@@ -34,7 +34,7 @@ if (function_exists('have_rows') && have_rows('hero_block')) :
       <div class="ve-scene__copy">
         <h1>About us</h1>
         <div class="ve-scene__description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</div>
-        <div class="ve-scene__button"><a class="primary-button" href="#scene-3">Contact us</a></div>
+        <div class="ve-scene__button"><a class="primary-button" href="#scene-3">Optional Button</a></div>
       </div>
     </div>
 
@@ -64,6 +64,6 @@ if (function_exists('have_rows') && have_rows('hero_block')) :
 </main>
 </section>  
 
-<?php endwhile; ?>
-<?php endif; ?>
+<?php //endwhile; ?>
+<?php //endif; ?>
 

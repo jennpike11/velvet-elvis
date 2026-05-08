@@ -8,13 +8,13 @@
   min-width: 160px;
   height: 40px;
   padding: 0 $spacer/2;
-  border: 1px solid $saffron;
+  border: 1px solid $lava-glow;
   border-radius: 2px;
   color: $ember;
   font-family: $font-secondary;
   font-weight: bold;
   text-transform: uppercase;
-  background-color: $saffron;
+  background-color: $lava-glow;
   cursor: pointer;
   z-index: 1;
   transition: color .2s ease-in-out;
@@ -31,7 +31,7 @@
 }
 
 .primary-button:hover {
-  color: $saffron;
+  color: $lava-glow;
 }
 
 .primary-button:hover:before {
