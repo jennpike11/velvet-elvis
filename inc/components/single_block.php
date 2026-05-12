@@ -31,8 +31,8 @@
         <div class="ve-scene__mid"></div>
 
         <?php if ($scene_index === 0) : ?>
-          <img class="ve-scene__bug" src="https://dev-velet-elvis.pikexdigital.com/wp-content/uploads/2026/05/bug.png" alt="">
-          <img class="ve-scene__float ve-scene__float--hula" src="https://dev-velet-elvis.pikexdigital.com/wp-content/uploads/2026/05/hula_girl.png" alt="">
+          <img class="ve-scene__bug" src="https://dev-velet-elvis.pikexdigital.com/wp-content/uploads/2026/05/bug.png" alt="VelvetElvis Studios">
+          <img class="ve-scene__float ve-scene__float--hula" src="https://dev-velet-elvis.pikexdigital.com/wp-content/uploads/2026/05/hula_girl_1.png" alt="VelvetElvis Studios">
         <?php endif; ?>
 
         <?php if ($scene_index === 1) : ?>
@@ -40,13 +40,13 @@
           <div class="ve-scene__ember ve-scene__ember--two"></div>
           <div class="ve-scene__ember ve-scene__ember--three"></div>
           <div class="ve-scene__ember ve-scene__ember--four"></div>
-          <img class="ve-scene__float ve-scene__float--volcano" src="https://dev-velet-elvis.pikexdigital.com/wp-content/uploads/2026/05/volcano.png" alt="">
-          <img class="ve-scene__float ve-scene__float--volcano-flowers" src="https://dev-velet-elvis.pikexdigital.com/wp-content/uploads/2026/05/flowers.png" alt="">
+          <img class="ve-scene__float ve-scene__float--volcano" src="https://dev-velet-elvis.pikexdigital.com/wp-content/uploads/2026/05/volcano_1-1.png" alt="VelvetElvis Studios">
+          <img class="ve-scene__float ve-scene__float--volcano-flowers" src="https://dev-velet-elvis.pikexdigital.com/wp-content/uploads/2026/05/flowers.png" alt="VelvetElvis Studios">
         <?php endif; ?>
 
         <?php if ($scene_index === 2) : ?>
-          <img class="ve-scene__float ve-scene__float--palms" src="https://dev-velet-elvis.pikexdigital.com/wp-content/uploads/2026/05/palm_trees_2.png" alt="">
-          <img class="ve-scene__float ve-scene__float--players" src="https://dev-velet-elvis.pikexdigital.com/wp-content/uploads/2026/05/players.png" alt="">
+          <img class="ve-scene__float ve-scene__float--palms" src="https://dev-velet-elvis.pikexdigital.com/wp-content/uploads/2026/05/palm_trees.png" alt="VelvetElvis Studios">
+          <img class="ve-scene__float ve-scene__float--players" src="https://dev-velet-elvis.pikexdigital.com/wp-content/uploads/2026/05/players_3.png" alt="VelvetElvis Studios">
         <?php endif; ?>
 
         <div class="ve-scene__copy">

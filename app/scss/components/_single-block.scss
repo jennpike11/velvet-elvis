@@ -79,7 +79,7 @@
     position: relative;
     z-index: 6;
     width: 100%;
-    max-width: 760px;
+    max-width: 640px;
     margin: 0 auto;
     padding: 8vh 32px 0;
     text-align: center;
@@ -100,10 +100,9 @@
       padding: 12vh 32px 0;
      }
 
-    @include respond-up(large) {
+    @include respond-up(medium) {
       align-self: center;
       width: auto;
-      max-width: 960px;
       margin: 0 4vw 6vh 44vw;
       padding: 0;
       text-align: left;
@@ -113,13 +112,13 @@
   &__subheading {
     text-align: center;
 
-    @include respond-up(large) {
+    @include respond-up(medium) {
       text-align: unset;
     }
   }
 
   &__description {
-    max-width: 640px;
+    max-width: 480px;
     max-height: 560px;
     overflow-y: scroll;
     margin-bottom: 32px;
@@ -143,7 +142,7 @@
     .primary-button {
       margin: auto;
 
-      @include respond-up(large) {
+      @include respond-up(medium) {
         margin: unset;
       }
     }
@@ -208,35 +207,43 @@
 
   &__float--players {
     left: 50%;
-    bottom: 24px;
+    bottom: 16vh;
     z-index: 5;
     height: 140px;
     pointer-events: none;
     animation: ve-float-center 5s ease-in-out infinite;
 
-    @include respond-up(large) {
+    @include respond-up(medium) {
       left: 6vw;
+      bottom: 14vh;
+      height: 120px;
+      animation: ve-float 5s ease-in-out infinite;
+    }
+
+    @include respond-up(large) {
+      left: 12vw;
       bottom: 20vh;
       height: 200px;
-      animation: ve-float 5s ease-in-out infinite;
     }
   }
 
   &__float--palms {
     left: 50%;
-    bottom: 0;
+    bottom: 16vh;
     height: 48vh;
     z-index: 4;
     pointer-events: none;
     transform: translateX(-50%);
 
     @include respond-up(medium) {
-      height: 58vh;
+      bottom: 12vh;
+      left: 16vw;
+      height: 78vh;
     }
 
     @include respond-up(large) {
-      left: 0;
       bottom: 12vh;
+      left: 6vw;
       height: 88vh;
       transform: none;
     }
@@ -245,7 +252,7 @@
   &__float--volcano {
     position: absolute;
     left: 50%;
-    bottom: 0;
+    bottom: -32px;
     width: 100%;
     height: 320px;
     object-fit: cover;
@@ -253,10 +260,13 @@
     pointer-events: none;
     transform: translateX(-50%);
 
-    @include respond-up(large) {
+    @include respond-up(small) {
+      height: auto;
+    }
+
+    @include respond-up(medium) {
       left: 0;
       width: 100%;
-      height: auto;
       transform: none;
     }
   }
@@ -269,14 +279,14 @@
     animation: ve-float-center 5s ease-in-out infinite;
 
     @include respond-up(medium) {
+      left: 3vw;
+      bottom: 7vh;
       width: 240px;
+      animation: ve-float 5s ease-in-out infinite;
     }
 
     @include respond-up(large) {
-      left: 3vw;
-      bottom: 7vh;
       width: clamp(180px, 22vw, 420px);
-      animation: ve-float 5s ease-in-out infinite;
     }
   }
 

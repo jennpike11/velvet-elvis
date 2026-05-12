@@ -538,7 +538,7 @@ img {
   position: relative;
   z-index: 6;
   width: 100%;
-  max-width: 760px;
+  max-width: 640px;
   margin: 0 auto;
   padding: 8vh 32px 0;
   text-align: center;
@@ -558,11 +558,10 @@ img {
     padding: 12vh 32px 0;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 812px) {
   .ve-scene__copy {
     align-self: center;
     width: auto;
-    max-width: 960px;
     margin: 0 4vw 6vh 44vw;
     padding: 0;
     text-align: left;
@@ -571,13 +570,13 @@ img {
 .ve-scene__subheading {
   text-align: center;
 }
-@media (min-width: 1024px) {
+@media (min-width: 812px) {
   .ve-scene__subheading {
     text-align: unset;
   }
 }
 .ve-scene__description {
-  max-width: 640px;
+  max-width: 480px;
   max-height: 560px;
   overflow-y: scroll;
   margin-bottom: 32px;
@@ -601,7 +600,7 @@ img {
 .ve-scene__button .primary-button {
   margin: auto;
 }
-@media (min-width: 1024px) {
+@media (min-width: 812px) {
   .ve-scene__button .primary-button {
     margin: unset;
   }
@@ -664,23 +663,30 @@ img {
 }
 .ve-scene__float--players {
   left: 50%;
-  bottom: 24px;
+  bottom: 16vh;
   z-index: 5;
   height: 140px;
   pointer-events: none;
   animation: ve-float-center 5s ease-in-out infinite;
 }
-@media (min-width: 1024px) {
+@media (min-width: 812px) {
   .ve-scene__float--players {
     left: 6vw;
+    bottom: 14vh;
+    height: 120px;
+    animation: ve-float 5s ease-in-out infinite;
+  }
+}
+@media (min-width: 1024px) {
+  .ve-scene__float--players {
+    left: 12vw;
     bottom: 20vh;
     height: 200px;
-    animation: ve-float 5s ease-in-out infinite;
   }
 }
 .ve-scene__float--palms {
   left: 50%;
-  bottom: 0;
+  bottom: 16vh;
   height: 48vh;
   z-index: 4;
   pointer-events: none;
@@ -688,13 +694,15 @@ img {
 }
 @media (min-width: 812px) {
   .ve-scene__float--palms {
-    height: 58vh;
+    bottom: 12vh;
+    left: 16vw;
+    height: 78vh;
   }
 }
 @media (min-width: 1024px) {
   .ve-scene__float--palms {
-    left: 0;
     bottom: 12vh;
+    left: 6vw;
     height: 88vh;
     transform: none;
   }
@@ -702,7 +710,7 @@ img {
 .ve-scene__float--volcano {
   position: absolute;
   left: 50%;
-  bottom: 0;
+  bottom: -32px;
   width: 100%;
   height: 320px;
   object-fit: cover;
@@ -710,11 +718,15 @@ img {
   pointer-events: none;
   transform: translateX(-50%);
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
+  .ve-scene__float--volcano {
+    height: auto;
+  }
+}
+@media (min-width: 812px) {
   .ve-scene__float--volcano {
     left: 0;
     width: 100%;
-    height: auto;
     transform: none;
   }
 }
@@ -727,15 +739,15 @@ img {
 }
 @media (min-width: 812px) {
   .ve-scene__float--volcano-flowers {
+    left: 3vw;
+    bottom: 7vh;
     width: 240px;
+    animation: ve-float 5s ease-in-out infinite;
   }
 }
 @media (min-width: 1024px) {
   .ve-scene__float--volcano-flowers {
-    left: 3vw;
-    bottom: 7vh;
     width: clamp(180px, 22vw, 420px);
-    animation: ve-float 5s ease-in-out infinite;
   }
 }
 .ve-scene .ve-scene__ember {
