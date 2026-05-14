@@ -134,6 +134,10 @@
       margin-right: unset;
       margin-left: unset;
     }
+
+     @include respond-up(large) {
+        max-height: unset;
+     }
   }
 
   &__button {

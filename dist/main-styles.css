@@ -594,6 +594,11 @@ img {
     margin-left: unset;
   }
 }
+@media (min-width: 1024px) {
+  .ve-scene__description {
+    max-height: unset;
+  }
+}
 .ve-scene__button {
   margin-top: 32px;
 }
