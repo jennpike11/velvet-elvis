@@ -96,16 +96,16 @@
       transition: none;
     }
 
-     @include respond-up(small) {
-      padding: 12vh 32px 0;
-     }
-
     @include respond-up(medium) {
       align-self: center;
       width: auto;
-      margin: 0 4vw 6vh 44vw;
+      margin: 0 4vw 6vh 38vw;
       padding: 0;
       text-align: left;
+    }
+
+    @include respond-up(large) {
+      margin: 0 4vw 6vh 44vw;
     }
   }
 
@@ -164,6 +164,11 @@
     bottom: 20px;
     height: 44vh;
     animation: ve-sway-center 5s ease-in-out infinite;
+
+    @include respond-up(medium){
+      left: 16vw;
+      height: 72vh;
+    }
 
     @include respond-up(large) {
       left: 4vw;

@@ -553,18 +553,18 @@ img {
   opacity: 0;
   transition: none;
 }
-@media (min-width: 768px) {
-  .ve-scene__copy {
-    padding: 12vh 32px 0;
-  }
-}
 @media (min-width: 812px) {
   .ve-scene__copy {
     align-self: center;
     width: auto;
-    margin: 0 4vw 6vh 44vw;
+    margin: 0 4vw 6vh 38vw;
     padding: 0;
     text-align: left;
+  }
+}
+@media (min-width: 1024px) {
+  .ve-scene__copy {
+    margin: 0 4vw 6vh 44vw;
   }
 }
 .ve-scene__subheading {
@@ -619,6 +619,12 @@ img {
   bottom: 20px;
   height: 44vh;
   animation: ve-sway-center 5s ease-in-out infinite;
+}
+@media (min-width: 812px) {
+  .ve-scene__float--hula {
+    left: 16vw;
+    height: 72vh;
+  }
 }
 @media (min-width: 1024px) {
   .ve-scene__float--hula {
